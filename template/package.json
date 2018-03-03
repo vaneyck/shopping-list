@@ -1,0 +1,17 @@
+{
+	"description": "Manage your shopping list easily",
+	"license": "MIT",
+	"readme": "shoppinglist",
+	"nativescript": {
+		"id": "com.mambobeard.shoppinglist"
+	},
+	"dependencies": {
+		"tns-core-modules": "3.4.0"
+	},
+	"devDependencies": {
+		"babel-traverse": "6.26.0",
+		"babel-types": "6.26.0",
+		"babylon": "6.18.0",
+		"lazy": "1.0.11"
+	}
+}
