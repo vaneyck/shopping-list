@@ -1,10 +1,10 @@
 <template>
-    <Page>
-        <ActionBar title="Shopping List" />
-        <StackLayout>
-            <LandingPage />
-        </StackLayout>
-    </Page>
+  <Page>
+    <ActionBar title="Shopping List" />
+    <StackLayout>
+      <LandingPage />
+    </StackLayout>
+  </Page>
 </template>
 
 <script>
