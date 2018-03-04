@@ -1,20 +1,9 @@
 <template>
-  <Page>
-    <ActionBar title="Shopping List" />
-    <StackLayout>
-      <LandingPage />
-    </StackLayout>
-  </Page>
+  <router-view></router-view>
 </template>
 
 <script>
-  import LandingPage from './components/LandingPage';
-
-  export default {
-    components: {
-      LandingPage
-    }
-  }
+  export default {}
 </script>
 
 <style>

@@ -1,14 +1,17 @@
 <template>
-  <StackLayout>
-    <Button>Add Shopping List</Button>
-    <ListView :items="shoppingList">
-      <v-template>
-        <StackLayout class="shopping-list">
-          <Label :text="item.name"></Label>
-        </StackLayout>
-      </v-template>
-    </ListView>
-  </StackLayout>
+  <Page>
+    <ActionBar title="Shopping List" />
+    <StackLayout>
+      <Button>Add Shopping List</Button>
+      <ListView :items="shoppingList">
+        <v-template>
+          <StackLayout class="shopping-list">
+            <Label :text="item.name"></Label>
+          </StackLayout>
+        </v-template>
+      </ListView>
+    </StackLayout>
+  </Page>
 </template>
 
 <script>
