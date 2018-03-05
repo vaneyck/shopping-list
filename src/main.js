@@ -4,6 +4,7 @@ import App from './App';
 import store from './store';
 
 import LandingPage from './components/LandingPage';
+import EditShoppingList from './components/EditShoppingList';
 
 import './styles.scss';
 
@@ -14,6 +15,11 @@ const router = new VueRouter({
     {
       path: '/landingpage',
       component: LandingPage
+    },
+    {
+      path: '/edit/:shoppingListId',
+      props: true,
+      component: EditShoppingList
     },
     { path: '*', redirect: '/landingpage' }
   ]

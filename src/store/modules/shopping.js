@@ -31,8 +31,11 @@ const mutations = {
 };
 
 const getters = {
-  getShoppingList () {
+  getAllShoppingLists (state) {
     return state.shoppingList;
+  },
+  getShoppingListById: (state) => (id) => {
+    return state.shoppingList.find(list => list.id === parseInt(id));
   }
 }
 

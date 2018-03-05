@@ -3,7 +3,7 @@
     <ActionBar title="Shopping List" />
     <StackLayout>
       <Button>Add Shopping List</Button>
-      <ListView :items="shoppingList">
+      <ListView :items="shoppingList" @itemTap="editShoppingList">
         <v-template>
           <StackLayout class="shopping-list">
             <Label :text="item.name"></Label>
@@ -20,13 +20,18 @@
   export default {
     computed: {
       shoppingList () {
-        return this.$store.getters.getShoppingList;
+        return this.$store.getters.getAllShoppingLists;
       }
     },
-    methods: mapActions([
-      'addShoppingList',
-      'deleteShoppingList',
-    ]),
+    methods: {
+      ...mapActions([
+        'addShoppingList',
+        'deleteShoppingList',
+      ]),
+      editShoppingList: function (event) {
+        this.$router.push('/edit/' + event.item.id);
+      }
+    }
   };
 </script>
 
