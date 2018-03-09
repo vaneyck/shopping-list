@@ -1,7 +1,7 @@
 <template>
   <Page>
     <ActionBar title="Shopping List" />
-    <StackLayout>
+    <StackLayout class="content">
       <Button>Add Shopping List</Button>
       <ListView :items="shoppingList" @itemTap="editShoppingList">
         <v-template>
@@ -16,6 +16,7 @@
 
 <script>
   import { mapActions } from 'vuex';
+  import EditShoppingList from './EditShoppingList';
 
   export default {
     computed: {
@@ -29,7 +30,8 @@
         'deleteShoppingList',
       ]),
       editShoppingList: function (event) {
-        this.$router.push('/edit/' + event.item.id);
+        this.$store.dispatch("updateListToEditId", event.item.id);
+        this.$navigateTo(EditShoppingList);
       }
     }
   };
