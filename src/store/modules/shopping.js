@@ -5,8 +5,16 @@ const state = {
       id: 1,
       name: 'January Shopping',
       items: [
-        { name: 'Banana', price: 300 },
-        { name: 'Mango', price: 400 }
+        { name: 'Banana', price: 303450 },
+        { name: 'Mango', price: 400 },
+        { name: 'Tree House', price: 23 },
+        { name: 'Television', price: 40 },
+        { name: 'Chair', price: 60 },
+        { name: 'Table', price: 502 },
+        { name: 'Carpet', price: 23 },
+        { name: 'Jacket', price: 234 },
+        { name: 'Car Keys', price: 123 },
+        { name: 'Pillow', price: 34534534 },
       ]
     },
     {

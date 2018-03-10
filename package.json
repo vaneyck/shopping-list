@@ -13,6 +13,7 @@
     "watch:ios": "cross-env PLATFORM=ios npm run watch"
   },
   "dependencies": {
+    "lodash": "^4.17.5",
     "nativescript-vue": "^1.2.0",
     "tns-core-modules": "3.4.1",
     "vuex": "^3.0.1"
