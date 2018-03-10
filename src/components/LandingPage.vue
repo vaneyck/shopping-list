@@ -2,7 +2,7 @@
   <Page>
     <ActionBar title="Shopping List" />
     <StackLayout class="content">
-      <Button>Add Shopping List</Button>
+      <Button @tap="createNewShoppingList">Add Shopping List</Button>
       <ListView :items="shoppingList" @itemTap="editShoppingList">
         <v-template>
           <StackLayout class="shopping-list">
@@ -31,6 +31,10 @@
       ]),
       editShoppingList: function (event) {
         this.$store.dispatch("updateListToEditId", event.item.id);
+        this.$navigateTo(EditShoppingList);
+      },
+      createNewShoppingList: function () {
+        this.$store.dispatch('addShoppingList');
         this.$navigateTo(EditShoppingList);
       }
     }

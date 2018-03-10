@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const state = {
   listToEditId: null,
   shoppingList: [
@@ -32,7 +34,14 @@ const state = {
 
 const mutations = {
   addShoppingList (state) {
-    // TODO > create shopping list
+    let randomId = _.now();
+    var newList = {
+      id: randomId,
+      name: 'New List : ' + new Date(),
+      items: []
+    };
+    state.shoppingList.push(newList);
+    state.listToEditId = randomId;
   },
   deleteShoppingList (state) {
     // TODO > delete shopping list
