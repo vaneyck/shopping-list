@@ -5,12 +5,12 @@
     </ActionBar>
     <StackLayout>
       <DockLayout stretchLastChild="false" class="header">
-        <StackLayout dock="left">
+        <StackLayout dock="left" width="65%">
           <Label class="item-name" :text="shoppingList.name"/>
           <Label class="item-count" :text="numberOfItems"/>
           <Label class="total-cost" :text="totalCost"/>
         </StackLayout>
-        <StackLayout dock="right">
+        <StackLayout dock="right" width="35%">
           <Button @tap="showEditNameModal">Edit Name</Button>
           <Button @tap="showEditShoppingListItemModal">Add Item</Button>
         </StackLayout>
@@ -67,7 +67,7 @@
 
 <style lang="scss" scoped>
   .header {
-    padding: 10 0 10 20;
+    padding: 10 10 10 20;
     background-color: gray;
 
     .item-name {

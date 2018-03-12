@@ -48,6 +48,10 @@ const mutations = {
   },
   updateListToEditId (state, listId) {
     state.listToEditId = listId;
+  },
+  updateShoppingListName (state, shoppingListName) {
+    let shoppingList = state.shoppingList.find(list => list.id === parseInt(state.listToEditId));
+    shoppingList.name = shoppingListName;
   }
 };
 
@@ -59,7 +63,6 @@ const getters = {
     return state.shoppingList;
   },
   getShoppingListById: (state) => (id) => {
-    console.log(id);
     return state.shoppingList.find(list => list.id === parseInt(id));
   }
 }
@@ -67,6 +70,9 @@ const getters = {
 const actions = {
   addShoppingList: ({commit}) => commit('addShoppingList'),
   deleteShoppingList: ({commit}) => commit('deleteShoppingList'),
+  updateShoppingListName (context, shoppingListName) {
+    context.commit('updateShoppingListName', shoppingListName);
+  },
   updateListToEditId (context, listId) {
     context.commit('updateListToEditId', listId);
   }

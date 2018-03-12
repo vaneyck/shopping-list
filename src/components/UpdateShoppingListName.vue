@@ -1,14 +1,22 @@
 <template>
   <Page>
     <StackLayout class="content">
-      <TextField :text="shoppingList.name" hint="Give this shopping list a name" />
-      <Button text="Save"/>
+      <TextView v-model="newShoppingListName" hint="Give this shopping list a name" />
+      <Button @tap="saveShoppingListName" text="Save"/>
     </StackLayout>
   </Page>
 </template>
 
 <script>
   export default {
+    data () {
+      return {
+        newShoppingListName: null
+      };
+    },
+    mounted () {
+      this.newShoppingListName = this.shoppingList.name;
+    },
     computed: {
       shoppingList () {
         return this.$store.getters.getShoppingListById(this.listIdToEdit);
@@ -16,6 +24,11 @@
       listIdToEdit () {
         return this.$store.getters.getListIdToEdit;
       },
+    },
+    methods: {
+      saveShoppingListName: function () {
+        this.$store.dispatch('updateShoppingListName', this.newShoppingListName);
+      }
     }
   }
 </script>
