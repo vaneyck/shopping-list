@@ -5,6 +5,7 @@ const state = {
   shoppingList: [
     {
       id: 1,
+      dateCreated: new Date(),
       name: 'January Shopping',
       items: [
         { name: 'Banana', price: 303450 },
@@ -21,14 +22,25 @@ const state = {
     },
     {
       id: 2,
+      dateCreated: new Date(),
       name: 'Random Shopping',
       items: [
         { name: 'Chair', price: 20 },
         { name: 'TV', price: 40000 }
       ]
     },
-    { id: 3, name: 'Road Trip Things', items: [] },
-    { id: 4, name: 'Office Items', items: [] }
+    {
+      id: 3,
+      dateCreated: new Date(),
+      name: 'Road Trip Things',
+      items: []
+    },
+    {
+      id: 4,
+      dateCreated: new Date(),
+      name: 'Office Items',
+      items: []
+    }
   ],
 };
 
