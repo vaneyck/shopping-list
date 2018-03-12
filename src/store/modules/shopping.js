@@ -49,6 +49,7 @@ const mutations = {
     let randomId = _.now();
     var newList = {
       id: randomId,
+      dateCreated: new Date(),
       name: 'New List',
       items: []
     };

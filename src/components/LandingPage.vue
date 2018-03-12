@@ -6,7 +6,7 @@
       <ListView for="item in shoppingList" @itemTap="editShoppingList">
         <v-template>
           <StackLayout class="shopping-list">
-            <Label :text="item.name"></Label>
+            <Label :text="item.name" textWrap="true"></Label>
           </StackLayout>
         </v-template>
       </ListView>
