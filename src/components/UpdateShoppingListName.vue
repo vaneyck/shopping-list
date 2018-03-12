@@ -28,6 +28,7 @@
     methods: {
       saveShoppingListName: function () {
         this.$store.dispatch('updateShoppingListName', this.newShoppingListName);
+        this.$modal.close();
       }
     }
   }
