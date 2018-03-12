@@ -37,7 +37,7 @@ const mutations = {
     let randomId = _.now();
     var newList = {
       id: randomId,
-      name: 'New List : ' + new Date(),
+      name: 'New List',
       items: []
     };
     state.shoppingList.push(newList);

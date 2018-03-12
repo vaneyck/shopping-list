@@ -3,7 +3,7 @@
     <ActionBar title="Shopping List" />
     <StackLayout class="content">
       <Button @tap="createNewShoppingList">Add Shopping List</Button>
-      <ListView :items="shoppingList" @itemTap="editShoppingList">
+      <ListView for="item in shoppingList" @itemTap="editShoppingList">
         <v-template>
           <StackLayout class="shopping-list">
             <Label :text="item.name"></Label>

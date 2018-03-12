@@ -4,15 +4,19 @@
       <NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack" />
     </ActionBar>
     <StackLayout>
-      <StackLayout class="header">
-        <Label class="item-name" :text="shoppingList.name"/>
-        <Label class="item-count" :text="numberOfItems"/>
-        <Label class="total-cost" :text="totalCost"/>
-      </StackLayout>
+      <DockLayout stretchLastChild="false" class="header">
+        <StackLayout dock="left">
+          <Label class="item-name" :text="shoppingList.name"/>
+          <Label class="item-count" :text="numberOfItems"/>
+          <Label class="total-cost" :text="totalCost"/>
+        </StackLayout>
+        <StackLayout dock="right">
+          <Button @tap="showEditNameModal">Edit Name</Button>
+          <Button @tap="showEditShoppingListItemModal">Add Item</Button>
+        </StackLayout>
+      </DockLayout>
       <StackLayout class=content>
-        <TextField :text="shoppingList.name" hint="Enter shopping list name" />
-        <Label text="Items"/>
-        <ListView :items="shoppingList.items">
+        <ListView for="item in shoppingList.items">
           <v-template>
             <DockLayout stretchLastChild="false" class="shopping-list-item">
               <Label class="item-name" dock="left" :text="item.name"></Label>
@@ -27,6 +31,8 @@
 
 <script>
   import _ from "lodash";
+  import UpdateShoppingListName from './UpdateShoppingListName';
+  import EditShoppingListItem from './EditShoppingListItem';
 
   export default {
     computed: {
@@ -47,6 +53,14 @@
         }
         return "Total Cost : " + total;
       }
+    },
+    methods: {
+      showEditNameModal: function () {
+         this.$showModal(UpdateShoppingListName);
+      },
+      showEditShoppingListItemModal: function () {
+        this.$showModal(EditShoppingListItem);
+      }
     }
   }
 </script>
@@ -54,7 +68,7 @@
 <style lang="scss" scoped>
   .header {
     padding: 10 0 10 20;
-    background-color: blue;
+    background-color: gray;
 
     .item-name {
       color: white;
