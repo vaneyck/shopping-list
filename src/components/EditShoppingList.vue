@@ -6,7 +6,7 @@
     <StackLayout>
       <DockLayout stretchLastChild="false" class="header">
         <StackLayout dock="left" width="65%">
-          <Label class="item-name" :text="shoppingList.name"/>
+          <Label class="item-name" :text="shoppingList.name" textWrap="true"/>
           <Label class="item-count" :text="numberOfItems"/>
           <Label class="total-cost" :text="totalCost"/>
         </StackLayout>
