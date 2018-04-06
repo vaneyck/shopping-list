@@ -8,16 +8,16 @@ const state = {
       dateCreated: new Date(),
       name: 'January Shopping',
       items: [
-        { name: 'Banana', price: 303450 },
-        { name: 'Mango', price: 400 },
-        { name: 'Tree House', price: 23 },
-        { name: 'Television', price: 40 },
-        { name: 'Chair', price: 60 },
-        { name: 'Table', price: 502 },
-        { name: 'Carpet', price: 23 },
-        { name: 'Jacket', price: 234 },
-        { name: 'Car Keys', price: 123 },
-        { name: 'Pillow', price: 34534534 },
+        { id:1, name: 'Banana', price: 303450 },
+        { id:2, name: 'Mango', price: 400 },
+        { id:3, name: 'Tree House', price: 23 },
+        { id:4, name: 'Television', price: 40 },
+        { id:5, name: 'Chair', price: 60 },
+        { id:6, name: 'Table', price: 502 },
+        { id:7, name: 'Carpet', price: 23 },
+        { id:8, name: 'Jacket', price: 234 },
+        { id:9, name: 'Car Keys', price: 123 },
+        { id:10, name: 'Pillow', price: 34534534 },
       ]
     },
     {
@@ -25,8 +25,8 @@ const state = {
       dateCreated: new Date(),
       name: 'Random Shopping',
       items: [
-        { name: 'Chair', price: 20 },
-        { name: 'TV', price: 40000 }
+        { id: 1, name: 'Chair', price: 20 },
+        { id: 2, name: 'TV', price: 40000 }
       ]
     },
     {
