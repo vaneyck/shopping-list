@@ -9,6 +9,7 @@
           <Label class="item-name" :text="shoppingList.name" textWrap="true"/>
           <Label class="item-count" :text="numberOfItems"/>
           <Label class="total-cost" :text="totalCost"/>
+          <Label class="date-created" :text="shoppingList.dateCreated"/>
         </StackLayout>
         <StackLayout dock="right" width="35%">
           <Button @tap="showEditNameModal">Edit Name</Button>
@@ -87,6 +88,10 @@
     .total-cost {
       color: white;
       font-size: 20;
+    }
+    .date-created {
+      color: white;
+      font-size: 10;
     }
   }
   .shopping-list-item {

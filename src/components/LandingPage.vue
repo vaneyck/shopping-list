@@ -6,7 +6,11 @@
       <ListView for="item in shoppingList" @itemTap="editShoppingList">
         <v-template>
           <StackLayout class="shopping-list">
-            <Label :text="item.name" textWrap="true"></Label>
+            <DockLayout stretchLastChild="false">
+              <Label :text="item.name" textWrap="true" dock="left"></Label>
+              <Label class="item-count" :text="item.items.length" textWrap="true" dock="right"></Label>
+            </DockLayout>
+            <Label class="date-created" :text="item.dateCreated"></Label>
           </StackLayout>
         </v-template>
       </ListView>
@@ -100,5 +104,13 @@
   .shopping-list {
     padding: 10;
     font-size: 24;
+  }
+  .shopping-list .item-count {
+    font-size: 20;
+    color: gray;
+  }
+  .shopping-list .date-created {
+    font-size: 10;
+    color: gray;
   }
 </style>
