@@ -18,3 +18,9 @@ npm run watch:ios
 ```
 
 For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
+
+# Find APK here
+
+```
+dist/platforms/android/app/build/outputs/apk/
+```
