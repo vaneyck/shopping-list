@@ -40,7 +40,7 @@
                 docData.id = doc.id;
                 docData.items = [];
                 console.log(`Retrieved List ${doc.id} : ${docData.name}`);
-                const shoppingListItemCollection = shoppingListItemsReference.where('shopping_list_id', '==', docData.id);
+                const shoppingListItemCollection = shoppingListItemsReference.where('shoppingListId', '==', docData.id);
                 shoppingListItemCollection.get().then ( shoppingListItemsSnapshot => {
                   shoppingListItemsSnapshot.forEach ( itemSnapshot => {
                     var itemData = itemSnapshot.data();

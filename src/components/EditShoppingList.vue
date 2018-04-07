@@ -20,7 +20,7 @@
           <v-template>
             <DockLayout stretchLastChild="false" class="shopping-list-item">
               <Label class="item-name" dock="left" :text="item.name"></Label>
-              <Label class="item-price" dock="right" :text="item.price"></Label>
+              <Label class="item-price" dock="right" :text="(item.unitPrice * item.unitNumber)"></Label>
             </DockLayout>
           </v-template>
         </ListView>
@@ -49,7 +49,7 @@
       totalCost () {
         let total = 0;
         if (this.shoppingList.items.length > 0) {
-          total = _.sumBy(this.shoppingList.items, function(o) { return o.price; });
+          total = _.sumBy(this.shoppingList.items, function(o) { return o.unitPrice * o.unitNumber; });
         }
         return "Total Cost : " + total;
       }
