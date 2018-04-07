@@ -12,11 +12,11 @@
         </StackLayout>
         <StackLayout dock="right" width="35%">
           <Button @tap="showEditNameModal">Edit Name</Button>
-          <Button @tap="showEditShoppingListItemModal">Add Item</Button>
+          <Button @tap="addListItem">Add Item</Button>
         </StackLayout>
       </DockLayout>
       <StackLayout class=content>
-        <ListView for="item in shoppingList.items">
+        <ListView for="item in shoppingList.items" @itemTap="editListItem">
           <v-template>
             <DockLayout stretchLastChild="false" class="shopping-list-item">
               <Label class="item-name" dock="left" :text="item.name"></Label>
@@ -58,7 +58,12 @@
       showEditNameModal: function () {
          this.$showModal(UpdateShoppingListName);
       },
-      showEditShoppingListItemModal: function () {
+      editListItem: function (event) {
+        this.$store.dispatch('updateListItemToEdit', event.item.id);
+        this.$showModal(EditShoppingListItem);
+      },
+      addListItem: function () {
+        this.$store.dispatch('updateListItemToEdit', null);
         this.$showModal(EditShoppingListItem);
       }
     }

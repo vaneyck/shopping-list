@@ -3,6 +3,7 @@ import _ from "lodash";
 const state = {
   user: null,
   listToEditId: null,
+  listItemToEditId: null,
   shoppingList: [],
 };
 
@@ -17,6 +18,9 @@ const mutations = {
   updateListToEditId (state, listId) {
     state.listToEditId = listId;
   },
+  updateListItemToEdit (state, listItemId) {
+    state.listItemToEditId = listItemId;
+  },
   updateShoppingListName (state, shoppingListName) {
     let shoppingList = state.shoppingList.find(list => list.id === state.listToEditId);
     shoppingList.name = shoppingListName;
@@ -24,6 +28,13 @@ const mutations = {
   addItemInShoppingList (state, itemData) {
     let shoppingList = state.shoppingList.find(list => list.id === state.listToEditId);
     shoppingList.items.push(itemData);
+  },
+  updateItemInShoppingList (state, itemData) {
+    let shoppingList = state.shoppingList.find(list => list.id === state.listToEditId);
+    let shoppingListItem = shoppingList.items.find(item => item.id === state.listItemToEditId);
+    shoppingListItem.name = itemData.name;
+    shoppingListItem.unitPrice = itemData.unitPrice;
+    shoppingListItem.unitNumber = itemData.unitNumber;
   },
   updateUser (state, user) {
     state.user = user;
@@ -36,6 +47,9 @@ const getters = {
   },
   getListIdToEdit (state) {
     return state.listToEditId;
+  },
+  getListItemIdToEdit (state) {
+    return state.listItemToEditId;
   },
   getAllShoppingLists (state) {
     return state.shoppingList;
@@ -61,6 +75,12 @@ const actions = {
   },
   updateListToEditId (context, listId) {
     context.commit('updateListToEditId', listId);
+  },
+  updateListItemToEdit (context, listItemId) {
+    context.commit('updateListItemToEdit', listItemId);
+  },
+  updateItemInShoppingList (context, itemData) {
+    context.commit('updateItemInShoppingList', itemData);
   }
 };
 
