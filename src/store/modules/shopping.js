@@ -36,7 +36,7 @@ const mutations = {
     state.listToEditId = listId;
   },
   updateShoppingListName (state, shoppingListName) {
-    let shoppingList = state.shoppingList.find(list => list.id === parseInt(state.listToEditId));
+    let shoppingList = state.shoppingList.find(list => list.id === state.listToEditId);
     shoppingList.name = shoppingListName;
   },
   updateUser (state, user) {
