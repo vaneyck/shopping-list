@@ -1,10 +1,11 @@
 import _ from "lodash";
 
 const state = {
+  user: null,
   listToEditId: null,
   shoppingList: [
     {
-      id: 1,
+      id: "asdas2312",
       dateCreated: new Date(),
       name: 'January Shopping',
       items: [
@@ -19,42 +20,14 @@ const state = {
         { id:9, name: 'Car Keys', price: 123 },
         { id:10, name: 'Pillow', price: 34534534 },
       ]
-    },
-    {
-      id: 2,
-      dateCreated: new Date(),
-      name: 'Random Shopping',
-      items: [
-        { id: 1, name: 'Chair', price: 20 },
-        { id: 2, name: 'TV', price: 40000 }
-      ]
-    },
-    {
-      id: 3,
-      dateCreated: new Date(),
-      name: 'Road Trip Things',
-      items: []
-    },
-    {
-      id: 4,
-      dateCreated: new Date(),
-      name: 'Office Items',
-      items: []
     }
   ],
 };
 
 const mutations = {
-  addShoppingList (state) {
-    let randomId = _.now();
-    var newList = {
-      id: randomId,
-      dateCreated: new Date(),
-      name: 'New List',
-      items: []
-    };
+  addShoppingList (state, newList) {
     state.shoppingList.push(newList);
-    state.listToEditId = randomId;
+    state.listToEditId = newList.id;
   },
   deleteShoppingList (state) {
     // TODO > delete shopping list
@@ -65,10 +38,16 @@ const mutations = {
   updateShoppingListName (state, shoppingListName) {
     let shoppingList = state.shoppingList.find(list => list.id === parseInt(state.listToEditId));
     shoppingList.name = shoppingListName;
+  },
+  updateUser (state, user) {
+    state.user = user;
   }
 };
 
 const getters = {
+  getUser (state) {
+    return state.user;
+  },
   getListIdToEdit (state) {
     return state.listToEditId;
   },
@@ -76,13 +55,18 @@ const getters = {
     return state.shoppingList;
   },
   getShoppingListById: (state) => (id) => {
-    return state.shoppingList.find(list => list.id === parseInt(id));
+    return state.shoppingList.find(list => list.id === id);
   }
 }
 
 const actions = {
-  addShoppingList: ({commit}) => commit('addShoppingList'),
+  addShoppingList (context, newList) {
+    context.commit('addShoppingList', newList);
+  },
   deleteShoppingList: ({commit}) => commit('deleteShoppingList'),
+  updateUser (context, user) {
+    context.commit('updateUser', user);
+  },
   updateShoppingListName (context, shoppingListName) {
     context.commit('updateShoppingListName', shoppingListName);
   },

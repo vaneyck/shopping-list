@@ -6,3 +6,6 @@ node_modules
 
 # NativeScript application
 /dist
+
+# Google
+template/app/App_Resources/Android/google-services.json
