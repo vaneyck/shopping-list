@@ -36,12 +36,10 @@
   import EditShoppingListItem from './EditShoppingListItem';
 
   export default {
+    props: ['listToEditId'],
     computed: {
       shoppingList () {
         return this.$store.getters.getShoppingListById(this.listIdToEdit);
-      },
-      listIdToEdit () {
-        return this.$store.getters.getListIdToEdit;
       },
       numberOfItems () {
         let count = this.shoppingList.items.length

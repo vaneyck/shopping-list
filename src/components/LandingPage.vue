@@ -76,8 +76,13 @@
         'deleteShoppingList',
       ]),
       editShoppingList: function (event) {
-        this.$store.dispatch("updateListToEditId", event.item.id);
-        this.$navigateTo(EditShoppingList);
+        this.$navigateTo(EditShoppingList, {
+          context: {
+            propsData: {
+              listToEditId: event.item.id
+            }
+          }
+        });
       },
       createNewShoppingList: function () {
         var newList = {
@@ -89,7 +94,13 @@
         shoppingListReference.add(newList).then( documentRef => {
           newList.id = documentRef.id
           this.$store.dispatch('addShoppingList', newList);
-          this.$navigateTo(EditShoppingList);
+          this.$navigateTo(EditShoppingList, {
+            context: {
+              propsData: {
+                listToEditId: newList.id
+              }
+            }
+          });
         })
       }
     }

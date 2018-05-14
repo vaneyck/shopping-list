@@ -43,7 +43,7 @@ const tnsRunApplication = (platform) => {
   }
   else {
     winston.info(`Running NativeScript application (${platform})...`);
-    action = 'run';
+    action = 'debug';
   }
   const tnsProcess = spawn('tns', [action, platform], {cwd: 'dist', stdio: 'inherit'});
   tnsProcess.on('close', (code) => {

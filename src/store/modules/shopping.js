@@ -10,13 +10,9 @@ const state = {
 const mutations = {
   addShoppingList (state, newList) {
     state.shoppingList.push(newList);
-    state.listToEditId = newList.id;
   },
   deleteShoppingList (state) {
     // TODO > delete shopping list
-  },
-  updateListToEditId (state, listId) {
-    state.listToEditId = listId;
   },
   updateListItemToEdit (state, listItemId) {
     state.listItemToEditId = listItemId;
